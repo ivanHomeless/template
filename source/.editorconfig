@@ -1,0 +1,14 @@
+# Корневой файл EditorConfig
+root = true
+
+# Для всех файлов используем unix-совместимые переносы строк
+[*]
+end_of_line = lf
+trim_trailing_whitespace = true
+
+# отступы в 4 пробела
+[**.{js,html,php,css}]
+indent_style = space
+indent_size = 4
+
+charset = utf-8

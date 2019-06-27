@@ -1,8 +1,8 @@
 {
-  "name": "pink",
+  "name": "template",
   "version": "1.0.0",
-  "description": "students project",
-  "main": "gulpfile.js",
+  "description": "start template",
+  "main": "build/index.html",
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
@@ -13,7 +13,6 @@
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^3.0.1",
-    "gulp-if": "^2.0.2",
     "gulp-imagemin": "^6.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
@@ -32,15 +31,5 @@
   "scripts": {
     "build": "gulp build",
     "start": "npm run build && gulp serve"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ivanHomeless/pink.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ivanHomeless/pink/issues"
-  },
-  "homepage": "https://github.com/ivanHomeless/pink#readme"
+  }
 }
