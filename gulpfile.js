@@ -158,4 +158,4 @@ gulp.task("serve",  function() {
 });
 
 gulp.task("img", gulp.series(["images", "webp", "sprite-img", "sprite-svg"]));
-gulp.task("build", gulp.series(["clean", "copy", "img", "js-libs", "style", "script", "html"]));
+gulp.task("build", gulp.series(["clean", "copy", "img", "style", "script", "html"]));
