@@ -28,8 +28,6 @@ gulp.task("clean", function() {
 gulp.task("copy", function() {
     return gulp.src([
         "source/fonts/**/*.{woff,woff2,eot,svg,ttf}",
-        /*"source/images/**",
-        "source/pictures/**"*/
         ], {
             base: "source"
         })
@@ -62,7 +60,7 @@ gulp.task("style", function() {
 
 gulp.task("js-libs", function() {
     return gulp.src([
-           
+
        ])
         .pipe(concat("libs.js"))
         .pipe(gulp.dest("build/js"))
@@ -85,8 +83,8 @@ gulp.task("script", function() {
 
 gulp.task("images", function() {
     return gulp.src([
-        "source/img/**/*.{jpg,jpeg,png,svg}",
-        "source/pic/**/*.{jpg,jpeg,png,svg}"
+        "source/images/*.{jpg,jpeg,png,svg}",
+        "source/pictures/**/*.{jpg,jpeg,png,svg}"
     ], {
         base: "source"
     })
@@ -100,8 +98,7 @@ gulp.task("images", function() {
 
 gulp.task("webp", function() {
     return gulp.src([
-        "source/img/**/*.{jpg,jpeg,png,svg}",
-        "source/pic/**/*.{jpg,jpeg,png,svg}"
+        "source/pictures/**/*.{jpg,jpeg,png,svg}"
     ], {
         base: "source"
     })
@@ -110,19 +107,19 @@ gulp.task("webp", function() {
 });
 
 gulp.task("sprite-svg", function() {
-    return gulp.src("source/img/icon-slide*")
+    return gulp.src("source/images/svg/**/*")
         .pipe(svgstore({
             inlineSvg: true
         }))
         .pipe(rename("sprite.svg"))
         .pipe(imagemin([imagemin.svgo()]))
-        .pipe(gulp.dest("source/img"))
-        .pipe(gulp.dest("build/img"));
+        .pipe(gulp.dest("source/images"))
+        .pipe(gulp.dest("build/images"));
 });
 
 gulp.task("sprite-img", function () {
   var spriteData = gulp.src([
-        "source/img/icon-*",
+        "source/images/icons/**/*",
     ])
   .pipe(imagemin([
         imagemin.optipng({optimizationLevel: 3}),
@@ -130,16 +127,16 @@ gulp.task("sprite-img", function () {
     ]))
   .pipe(spritesmith({
     imgName: "sprite.png",
-    imgPath: "/img/sprite.png",
+    imgPath: "/images/sprite.png",
     cssName: "_sprite.scss",
-    /*retinaSrcFilter: "test/*@2x.png",
+    /*retinaSrcFilter: "source/images/icons/!**!/!*@2x*",
     retinaImgName: "sprite@2x.png",
-    retinaImgPath: "test/sprite@2x.png",*/
+    retinaImgPath: "/images/sprite@2x.png",*/
     padding: 5
   }));
 
   var imgStream = spriteData.img
-    .pipe(gulp.dest("build/img"));
+    .pipe(gulp.dest("build/images/"));
 
   var cssStream = spriteData.css
     .pipe(gulp.dest("source/scss"));
